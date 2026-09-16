@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — HabitFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="loader-logo">⚡</div><p class="loader-text">Loading HabitFlow…</p></div>
+<div class="auth-bg"><div class="auth-bg-orb"></div><div class="auth-bg-orb"></div><div class="auth-bg-orb"></div></div>
+<main class="auth-page">
+  <div class="auth-card">
+    <a href="index.html" class="auth-brand">
+      <div class="auth-brand-icon">⚡</div>
+      <span class="auth-brand-name">HabitFlow</span>
+    </a>
+    <div class="auth-header">
+      <h1 class="auth-title">Welcome back 👋</h1>
+      <p class="auth-subtitle">Log in to continue your habit journey</p>
+    </div>
+    <div class="auth-divider"></div>
+    <div class="auth-alert" id="login-alert" role="alert" aria-live="polite"></div>
+    <form class="auth-form" id="loginForm" novalidate autocomplete="on">
+      <div class="form-group">
+        <label class="form-label" for="login-email"><i class="fa-solid fa-envelope"></i> Email Address <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="email" id="login-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required aria-describedby="login-email-msg" />
+          <i class="fa-solid fa-envelope input-icon"></i>
+        </div>
+        <span class="field-msg" id="login-email-msg" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="login-password"><i class="fa-solid fa-lock"></i> Password <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="password" id="login-password" class="auth-input" placeholder="Your password" autocomplete="current-password" required aria-describedby="login-password-msg" />
+          <i class="fa-solid fa-lock input-icon"></i>
+          <button type="button" class="input-eye" id="eye-login-pw" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <span class="field-msg" id="login-password-msg" role="alert"></span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+        <label class="auth-check-row"><input type="checkbox" id="login-remember" /> Remember me</label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+      <button type="submit" class="auth-btn" id="login-btn">
+        <span class="btn-text"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</span>
+        <span class="btn-spinner"><span class="spinner"></span></span>
+      </button>
+    </form>
+    <p class="auth-footer">Don't have an account? <a href="register.html">Create one free →</a></p>
+    <div class="auth-secure"><i class="fa-solid fa-shield-halved"></i> Secured with bcrypt &amp; JWT</div>
+  </div>
+</main>
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+<script src="js/auth.js"></script>
+<script>
+  window.addEventListener('load', () => { const l=document.getElementById('pageLoader'); if(l){l.classList.add('hidden');setTimeout(()=>l.remove(),400);} });
+  document.addEventListener('DOMContentLoaded', () => { autoFillLogin(); initLoginPage(); });
+</script>
+</body>
+</html>

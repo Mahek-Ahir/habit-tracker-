@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — HabitFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+<div class="page-loader" id="pageLoader"><div class="loader-logo">⚡</div><p class="loader-text">Loading HabitFlow…</p></div>
+<div class="auth-bg"><div class="auth-bg-orb"></div><div class="auth-bg-orb"></div><div class="auth-bg-orb"></div></div>
+<main class="auth-page">
+  <div class="auth-card">
+    <a href="index.html" class="auth-brand">
+      <div class="auth-brand-icon">⚡</div>
+      <span class="auth-brand-name">HabitFlow</span>
+    </a>
+    <div class="auth-features">
+      <span class="auth-feature"><i class="fa-solid fa-fire"></i>Streak Tracking</span>
+      <span class="auth-feature"><i class="fa-solid fa-chart-line"></i>Analytics</span>
+      <span class="auth-feature"><i class="fa-solid fa-medal"></i>Achievements</span>
+      <span class="auth-feature"><i class="fa-solid fa-bell"></i>Reminders</span>
+    </div>
+    <div class="auth-header">
+      <h1 class="auth-title">Create your account 🌱</h1>
+      <p class="auth-subtitle">Free forever · No credit card required</p>
+    </div>
+    <div class="auth-divider"></div>
+    <div class="auth-alert" id="reg-alert" role="alert" aria-live="polite"></div>
+    <form class="auth-form" id="registerForm" novalidate autocomplete="off">
+      <div class="form-group">
+        <label class="form-label" for="reg-username"><i class="fa-solid fa-at"></i> Username <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="text" id="reg-username" class="auth-input" placeholder="e.g. mahek_patel" maxlength="30" required aria-describedby="reg-username-msg" />
+          <i class="fa-solid fa-at input-icon"></i>
+        </div>
+        <span class="field-msg" id="reg-username-msg" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reg-display-name"><i class="fa-solid fa-user"></i> Display Name <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+        <div class="input-wrap">
+          <input type="text" id="reg-display-name" class="auth-input" placeholder="Your full name" maxlength="60" aria-describedby="reg-display-name-msg" />
+          <i class="fa-solid fa-user input-icon"></i>
+        </div>
+        <span class="field-msg" id="reg-display-name-msg" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reg-email"><i class="fa-solid fa-envelope"></i> Email Address <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="email" id="reg-email" class="auth-input" placeholder="you@example.com" autocomplete="email" required aria-describedby="reg-email-msg" />
+          <i class="fa-solid fa-envelope input-icon"></i>
+        </div>
+        <span class="field-msg" id="reg-email-msg" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reg-password"><i class="fa-solid fa-lock"></i> Password <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="password" id="reg-password" class="auth-input" placeholder="Min. 6 characters" autocomplete="new-password" required aria-describedby="reg-password-msg" />
+          <i class="fa-solid fa-lock input-icon"></i>
+          <button type="button" class="input-eye" id="eye-password" aria-label="Show password"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <div class="pw-strength-wrap" aria-live="polite">
+          <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwStrengthFill"></div></div>
+          <span class="pw-strength-label" id="pwStrengthLabel"></span>
+        </div>
+        <span class="field-msg" id="reg-password-msg" role="alert"></span>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="reg-confirm"><i class="fa-solid fa-lock-open"></i> Confirm Password <span class="required">*</span></label>
+        <div class="input-wrap">
+          <input type="password" id="reg-confirm" class="auth-input" placeholder="Repeat your password" autocomplete="new-password" required aria-describedby="reg-confirm-msg" />
+          <i class="fa-solid fa-lock-open input-icon"></i>
+          <button type="button" class="input-eye" id="eye-confirm" aria-label="Show confirm password"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <span class="field-msg" id="reg-confirm-msg" role="alert"></span>
+      </div>
+      <label class="auth-check-row">
+        <input type="checkbox" id="reg-terms" required />
+        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+      </label>
+      <button type="submit" class="auth-btn" id="reg-btn">
+        <span class="btn-text"><i class="fa-solid fa-user-plus"></i> Create Account</span>
+        <span class="btn-spinner"><span class="spinner"></span></span>
+      </button>
+    </form>
+    <p class="auth-footer">Already have an account? <a href="login.html">Log in →</a></p>
+    <div class="auth-secure"><i class="fa-solid fa-shield-halved"></i> Passwords hashed with bcrypt · JWT auth · No data sold.</div>
+  </div>
+</main>
+<div class="toast-container" id="toastContainer" aria-live="polite"></div>
+<script src="js/auth.js"></script>
+<script>
+  window.addEventListener('load', () => { const l=document.getElementById('pageLoader'); if(l){l.classList.add('hidden');setTimeout(()=>l.remove(),400);} });
+  document.addEventListener('DOMContentLoaded', () => { initRegisterPage(); });
+</script>
+</body>
+</html>

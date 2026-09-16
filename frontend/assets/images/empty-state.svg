@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" fill="none">
+  <rect width="320" height="240" rx="20" fill="rgba(124,58,237,0.05)"/>
+  <!-- clipboard -->
+  <rect x="95" y="50" width="130" height="160" rx="12" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.3)" stroke-width="2"/>
+  <rect x="115" y="40" width="90" height="24" rx="8" fill="rgba(124,58,237,0.2)" stroke="rgba(124,58,237,0.4)" stroke-width="1.5"/>
+  <!-- lines -->
+  <line x1="115" y1="90"  x2="205" y2="90"  stroke="rgba(124,58,237,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="115" y1="108" x2="185" y2="108" stroke="rgba(124,58,237,0.25)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="115" y1="126" x2="195" y2="126" stroke="rgba(124,58,237,0.25)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="115" y1="144" x2="175" y2="144" stroke="rgba(124,58,237,0.2)" stroke-width="2" stroke-linecap="round"/>
+  <!-- plus badge -->
+  <circle cx="205" cy="180" r="22" fill="#7c3aed"/>
+  <line x1="205" y1="170" x2="205" y2="190" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="195" y1="180" x2="215" y2="180" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <!-- sparkles -->
+  <circle cx="80"  cy="70"  r="4" fill="rgba(167,139,250,0.5)"/>
+  <circle cx="240" cy="90"  r="3" fill="rgba(167,139,250,0.4)"/>
+  <circle cx="260" cy="160" r="5" fill="rgba(124,58,237,0.3)"/>
+  <circle cx="70"  cy="170" r="3" fill="rgba(167,139,250,0.3)"/>
+</svg>
