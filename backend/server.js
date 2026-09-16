@@ -28,8 +28,18 @@ const allowedOrigins = [
   'http://localhost:3000', 'http://127.0.0.1:3000',
 ];
 app.use(cors({
-  origin: (origin, cb) => (!origin || allowedOrigins.includes(origin) || (!isProduction && origin === 'null'))
-    ? cb(null, true) : cb(new Error(`CORS: ${origin} not allowed`)),
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true);
+    if (
+      allowedOrigins.includes(origin) ||
+      allowedOrigins.includes('*') ||
+      origin.endsWith('.vercel.app') ||
+      (!isProduction && origin === 'null')
+    ) {
+      return cb(null, true);
+    }
+    return cb(new Error(`CORS: ${origin} not allowed`));
+  },
   methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
   allowedHeaders: ['Content-Type','Authorization'],
   credentials: true,

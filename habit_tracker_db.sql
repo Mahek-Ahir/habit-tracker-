@@ -5,12 +5,18 @@
 -- ║   Host: localhost | Port: 3307 | User: root | Password: (empty)             ║
 -- ╚══════════════════════════════════════════════════════════════════════════════╝
 
+-- SET FOREIGN_KEY_CHECKS = 0;
+-- DROP DATABASE IF EXISTS habit_tracker_db;
+-- CREATE DATABASE habit_tracker_db
+--   CHARACTER SET utf8mb4
+--   COLLATE utf8mb4_unicode_ci;
+-- USE habit_tracker_db;
+-- SET FOREIGN_KEY_CHECKS = 1;
+-- SET time_zone = '+00:00';
 SET FOREIGN_KEY_CHECKS = 0;
-DROP DATABASE IF EXISTS habit_tracker_db;
-CREATE DATABASE habit_tracker_db
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-USE habit_tracker_db;
+
+USE railway;
+
 SET FOREIGN_KEY_CHECKS = 1;
 SET time_zone = '+00:00';
 
@@ -582,3 +588,5 @@ FROM vw_analytics_weekly WHERE user_id = 1;
 
 SELECT habit_id, id, name, current_streak, performance_score
 FROM vw_best_habit WHERE user_id = 1 AND perf_rank = 1;
+
+SHOW TABLES;
