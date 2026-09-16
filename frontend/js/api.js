@@ -9,7 +9,7 @@ async function apiFetch(endpoint, options = {}) {
     if (response.status === 401) { HFAuth.logout(); if (typeof ToastView !== 'undefined') ToastView.show('Session expired. Please log in again.', 'warning'); }
     return { ok: response.ok, status: response.status, data };
   } catch {
-    return { ok: false, status: 0, data: { success: false, message: 'Cannot connect to server. Is the backend running on port 5000?' } };
+    return { ok: false, status: 0, data: { success: false, message: 'Cannot connect to server. Is the backend running and accessible?' } };
   }
 }
 

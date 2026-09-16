@@ -1,8 +1,8 @@
 'use strict';
 const API_BASE = window.HABITFLOW_API_BASE || (
-  ['localhost', '127.0.0.1'].includes(window.location.hostname) && ['3000', '5500'].includes(window.location.port)
-    ? `${window.location.protocol}//${window.location.hostname}:5000/api`
-    : `${window.location.origin}/api`
+  ['localhost', '127.0.0.1'].includes(window.location.hostname)
+    ? `http://${window.location.hostname}:5000/api`
+    : `https://habit-tracker-r9a5.onrender.com/api`
 );
 
 /* ── Token helpers ── */
@@ -100,7 +100,7 @@ async function apiCall(endpoint, body) {
     const data = await res.json();
     return { ok: res.ok, status: res.status, data };
   } catch {
-    return { ok: false, status: 0, data: { success: false, message: '❌ Cannot connect to server. Make sure the backend is running on port 5000.' } };
+    return { ok: false, status: 0, data: { success: false, message: '❌ Cannot connect to server. Make sure the backend is running and accessible.' } };
   }
 }
 
